@@ -31,13 +31,13 @@ app.MapGet("/api/tarefas", async (AppDataContext context) =>
     return Results.Ok(await context.Tarefas.ToListAsync());
 });
 
-/*
 app.MapGet("/api/tarefas/{id}", async (int id, AppDataContext context) => 
 {
     var tarefa = await context.Tarefas.FindAsync(id);
     return tarefa is null ? Results.NotFound("Tarefa com ID {id} não encontrada.") : Results.Ok(tarefa);
 });
 
+/*
 
 app.MapPut("/api/tarefas/{id}", async (int id, Tarefa tarefaAtualizada, AppDataContext context) => 
 {
