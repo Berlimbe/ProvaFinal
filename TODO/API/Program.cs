@@ -26,12 +26,12 @@ app.MapPost("/api/tarefas", async (Tarefa tarefa, AppDataContext context) => //q
     await context.SaveChangesAsync();
     return Results.Created($"/api/tarefas/{tarefa.Id}", tarefa);
 });
-
 app.MapGet("/api/tarefas", async (AppDataContext context) =>
 {
     return Results.Ok(await context.Tarefas.ToListAsync());
 });
 
+/*
 app.MapGet("/api/tarefas/{id}", async (int id, AppDataContext context) => 
 {
     var tarefa = await context.Tarefas.FindAsync(id);
@@ -67,6 +67,6 @@ app.MapDelete("/api/tarefas/{id}", async (int id, AppDataContext context) =>
     await context.SaveChangesAsync();
     return Results.NoContent();
 });
-
+*/
 
 app.Run();
