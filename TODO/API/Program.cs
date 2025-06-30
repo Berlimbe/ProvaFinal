@@ -37,7 +37,6 @@ app.MapGet("/api/tarefas/{id}", async (int id, AppDataContext context) =>
     return tarefa is null ? Results.NotFound("Tarefa com ID {id} não encontrada.") : Results.Ok(tarefa);
 });
 
-/*
 
 app.MapPut("/api/tarefas/{id}", async (int id, Tarefa tarefaAtualizada, AppDataContext context) => 
 {
@@ -56,6 +55,7 @@ app.MapPut("/api/tarefas/{id}", async (int id, Tarefa tarefaAtualizada, AppDataC
     return Results.Ok(tarefaAtualizada.Status);
 });
 
+/*
 app.MapDelete("/api/tarefas/{id}", async (int id, AppDataContext context) =>
 {
     var tarefa = await context.Tarefas.FindAsync(id);
