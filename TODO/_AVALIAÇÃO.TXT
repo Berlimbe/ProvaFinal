@@ -1,0 +1,57 @@
+API de TODO List
+
+Objetivo:
+    O foco é construir uma API simplificada para gerenciar tarefas (uma "TODO List"), composta por cinco endpoints essenciais.
+
+Endpoints a Desenvolver:
+  
+    1. Criar Tarefa (POST)
+        Rota: /api/tarefas
+        Validações e Mensagens de Erro Esperadas:
+            titulo:
+                Se estiver vazio ou nulo: "Título é obrigatório."  (Status HTTP: 400 Bad Request)
+                Se tiver menos de 3 caracteres: "Título deve ter no mínimo 3 caracteres."  (Status HTTP: 400 Bad Request)
+            status:
+                Se estiver vazio ou nulo: "Status é obrigatório."  (Status HTTP: 400 Bad Request)
+                Status não encontrado: "Status com ID {id} não encontrado" (Status HTTP: 404 Bad Request)
+
+        Resposta de Sucesso (Status HTTP: 201 Created): Retorna o objeto da tarefa recém-criada.
+    
+    2. Listar Todas as Tarefas (GET)
+        Rota: /api/tarefas
+        Resposta de Sucesso (Status HTTP: 200 OK): Retorna um array de objetos de tarefa.
+
+    3. Buscar Tarefa por ID (GET)
+        Rota: /api/tarefas/{id}
+        Mensagens de Erro Esperadas (Status HTTP: 404 Not Found):
+            Tarefa não encontrada:
+                Mensagem: "Tarefa com ID {id} não encontrada." (Substitua {id} pelo ID real da requisição).
+            
+        Resposta de Sucesso (Status HTTP: 200 OK): Retorna o objeto da tarefa correspondente ao ID.
+
+    4. Atualizar Tarefa (PUT)
+        Rota: /api/tarefas/{id}
+        Validações e Mensagens de Erro Esperadas:
+            Validações dos campos (titulo, status):
+                As mesmas regras e mensagens de erro do endpoint "Criar Tarefa (POST)" se aplicam a esses campos.
+                Tarefa não encontrada para atualização (Status HTTP: 404 Not Found):
+                    Mensagem: "Tarefa com ID {id} não encontrada para atualização." (Substitua {id} pelo ID real da requisição).
+            Resposta de Sucesso (Status HTTP: 200 OK): Retorna o objeto da tarefa atualizada.
+    
+    5. Remover Tarefa (DELETE)
+        Rota: /api/tarefas/{id}
+        Mensagens de Erro Esperadas (Status HTTP: 404 Not Found):
+            Tarefa não encontrada para remoção:
+                Mensagem: "Tarefa com ID {id} não encontrada para remoção." (Substitua {id} pelo ID real da requisição).
+        Resposta de Sucesso (Status HTTP: 204 No Content): Não retorna corpo na resposta, indicando que a operação foi bem-sucedida e não há conteúdo para enviar.
+
+Requisitos Adicionais:
+    •	Configuração de Banco de Dados:
+        É necessário configurar um banco de dados para persistir as informações das tarefas.
+    
+    •	Controle de Versão (Commits):
+        O projeto deve ter um mínimo de 5 commits, com mensagens que descrevam claramente o propósito de cada alteração (ex: "Implementei o endpoint POST").
+    
+    •	Arquivo de Teste Rest Client (_tarefa.http):
+        A construção deste arquivo será um item avaliado.
+        Ele deve conter exemplos de requisições para cada um dos endpoints, facilitando o teste da API com ferramentas como o Rest Client.
