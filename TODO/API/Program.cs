@@ -55,7 +55,6 @@ app.MapPut("/api/tarefas/{id}", async (int id, Tarefa tarefaAtualizada, AppDataC
     return Results.Ok(tarefaAtualizada.Status);
 });
 
-/*
 app.MapDelete("/api/tarefas/{id}", async (int id, AppDataContext context) =>
 {
     var tarefa = await context.Tarefas.FindAsync(id);
@@ -67,6 +66,5 @@ app.MapDelete("/api/tarefas/{id}", async (int id, AppDataContext context) =>
     await context.SaveChangesAsync();
     return Results.NoContent();
 });
-*/
 
 app.Run();
